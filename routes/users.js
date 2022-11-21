@@ -84,7 +84,7 @@ router.post(
     (value, { req }) => value === req.body.password
   ),
 
-  function (req, res, next) {
+  async function (req, res, next) {
     var name = req.body.name;
     var email = req.body.email;
     var username = req.body.username;
@@ -112,18 +112,51 @@ router.post(
         role: "user",
       });
 
-      User.createUser(newUser, function (err, user) {
-        console.log(err);
-        if (err) throw err;
-        console.log(user);
-      });
+      const userNameCheck = await User.findOne({ username: username });
+      const emailCheck = await User.findOne({ email: email });
 
-      req.flash(
-        "success",
-        "You have registered. Now please login for view our website"
-      );
-      res.location("/");
-      res.redirect("/");
+      if (userNameCheck) {
+        const errdt = [
+          {
+            value: username,
+            msg: `This ${username} username is taken`,
+            param: "userNameCheck",
+            location: "body",
+          },
+        ];
+        res.render("register", {
+          title: "User account register",
+          errors: errdt,
+          user: req.user,
+        });
+      } else if (emailCheck) {
+        const errdt = [
+          {
+            value: email,
+            msg: `This Email is already registered.`,
+            param: "emailCheck",
+            location: "body",
+          },
+        ];
+        res.render("register", {
+          title: "User account register",
+          errors: errdt,
+          user: req.user,
+        });
+      } else {
+        User.createUser(newUser, function (err, user) {
+          console.log(err);
+          if (err) throw err;
+          console.log(user);
+        });
+
+        req.flash(
+          "success",
+          "You have registered. Now please login for view our website"
+        );
+        res.location("/");
+        res.redirect("/");
+      }
     }
   }
 );

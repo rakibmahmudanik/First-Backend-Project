@@ -24,7 +24,7 @@ router.get("/login", function (req, res, next) {
 router.get("/register", function (req, res, next) {
   res.render("register", {
     title: "User account register",
-    errors: " ",
+    errors: [],
     user: req.user,
   });
 });
