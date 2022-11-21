@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link
+      rel="shortcut icon"
+      href="https://flowbite.com/docs/images/logo.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <link rel="stylesheet" href="/assets/css/custom.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  </head>
+  <body class="bg-gray-200">
+    <div class="container mx-auto">
+      <!-- Header -->
+      <div class="w-full bg-white drop-shadow-xl py-4">
+        <%- include('header'); -%>
+      </div>
+      <!-- Header -->
+      <!-- Main -->
+      <% if(indexFlash == ''){ }else{ %>
+      <div class="w-full py-2 bg-white">
+        <div class="w-full text-center mt-2">
+          <div
+            class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg"
+            role="alert"
+          >
+            <span class="font-medium"><%= indexFlash %></span>
+          </div>
+        </div>
+      </div>
+      <% }; %> <% if(!user){ %>
+
+      <div class="h-screen flex justify-center items-center bg-white">
+        <div class="flex justify-center items-center">
+          <div class="text-center">
+            <h1 class="text-6xl text-red-600 font-bold my-5">OH NO !!!</h1>
+            <p class="text-4xl mb-10 font-bold">You have to Login first</p>
+            <a
+              href="/login"
+              class="first-letter:text-white text-xl text-white bg-gradient-to-r from-sky-500/90 to-indigo-500/90 hover:bg-gradient-to-l focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full px-5 py-2.5 text-center duration-100"
+              >Go to login page</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <% }else{ %>
+
+      <div class="w-full bg-gray-100">
+        <div
+          class="banner flex flex-col gap-3 justify-center items-center w-full h-screen space-y-5 text-white"
+        >
+          <div
+            class="w-11/12 md:w-5/12 bg-gradient-to-r from-sky-500/75 to-indigo-500/75 py-3 rounded-md"
+          >
+            <h1 class="text-4xl text-center font-bold text-white">
+              We Love Tailwindcss
+            </h1>
+          </div>
+
+          <p class="text-2xl">
+            Web Template by
+            <a
+              href="https://github.com/rakibmahmudanik"
+              class="underline text-gray-300 hover:text-blue-300"
+              >Rakib</a
+            >
+          </p>
+          <a href="/contact">
+            <button
+              type="button"
+              class="text-white bg-gradient-to-r from-sky-500/90 to-indigo-500/90 hover:bg-gradient-to-l focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 duration-100"
+            >
+              Contact Us
+            </button></a
+          >
+        </div>
+
+        <div
+          class="h-auto py-10 md:py-0 md:h-screen flex flex-col justify-center items-center space-y-8"
+        >
+          <h1 class="text-3xl font-bold">Our Partners</h1>
+          <div
+            id="card-container"
+            class="flex space-y-5 bg-gray-100 md:space-x-7 md:space-y-0 md:justify-center md:items-center flex-col md:flex-row"
+          >
+            <div
+              id="card1"
+              class="text-center max-w-sm max-w-auto p-8 bg-white rounded-xl shadow-md space-y-3 flex items-center flex-col md:flex-row md:space-x-5 md:text-left hover:shadow-xl duration-500"
+            >
+              <img
+                id="card-img"
+                class="h-24 mx-auto rounded-full ring-4 ring-sky-300 md:flex-shrink-0 transform hover:scale-110 duration-500"
+                src="https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/702aae89c163347cfb67232d92cbbef3-946515221635923917680/JPEG_20211103_131835_2453392607489784848.jpg"
+                alt="Rakib mahmud"
+              />
+
+              <div class="space-y-3">
+                <div class="text-center">
+                  <h3 class="title text-xl text-black font-semibold">
+                    Rakib mahmud
+                  </h3>
+                  <p class="text-lg font-medium text-gray-500">
+                    Tailwind Practice
+                  </p>
+                </div>
+                <button
+                  onclick="btn1()"
+                  class="border rounded-full border-sky-300 px-2 py-1 font-semibold text-sm hover:text-white hover:bg-sky-300 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-sky-300 focus:ring-offset-2 duration-300"
+                >
+                  See Bio
+                </button>
+              </div>
+            </div>
+
+            <div
+              id="card2"
+              class="text-center max-w-sm max-w-auto p-8 bg-white rounded-xl shadow-md space-y-3 flex items-center flex-col md:flex-row md:space-x-5 md:text-left hover:shadow-xl duration-500"
+            >
+              <img
+                class="h-24 w-24 mx-auto rounded-full ring-4 ring-sky-500 md:flex-shrink-0 transform hover:scale-110 duration-500"
+                src="https://cdn.dribbble.com/users/3440365/screenshots/16385722/media/7a57028958a6d806f5cec9c22d2d565c.jpg?compress=1&resize=400x300"
+                alt="Rakib mahmud"
+              />
+
+              <div class="space-y-3">
+                <div class="text-center md:text-left">
+                  <h3 class="text-xl text-black font-semibold">Sohan Parves</h3>
+                  <p class="text-lg font-medium text-gray-500">
+                    Tailwind Practice
+                  </p>
+                </div>
+                <button
+                  onclick="btn2()"
+                  class="border rounded-full border-sky-500 px-2 py-1 font-semibold text-sm hover:text-white hover:bg-sky-500 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 duration-300"
+                >
+                  See Bio
+                </button>
+              </div>
+            </div>
+
+            <div
+              id="card3"
+              class="text-center max-w-sm max-w-auto p-8 bg-white rounded-xl shadow-md space-y-3 flex items-center flex-col md:flex-row md:space-x-5 md:text-left hover:shadow-xl duration-500"
+            >
+              <img
+                class="h-24 w-24 mx-auto rounded-full ring-4 ring-green-500 md:flex-shrink-0 transform hover:scale-110 duration-500"
+                src="https://cdn2.vectorstock.com/i/1000x1000/60/56/letter-w-square-creative-modern-business-logo-vector-27116056.jpg"
+                alt="Rakib mahmud"
+              />
+
+              <div class="space-y-3">
+                <div class="text-center md:text-left">
+                  <h3 class="text-xl text-black font-semibold">Anisul Islam</h3>
+                  <p class="text-lg font-medium text-gray-500">
+                    Tailwind Practice
+                  </p>
+                </div>
+                <button
+                  onclick="btn3()"
+                  class="border rounded-full border-green-500 px-2 py-1 font-semibold text-sm hover:text-white hover:bg-green-500 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 duration-300"
+                >
+                  See Bio
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <% }; %>
+
+      <!-- Main -->
+      <!-- footer -->
+      <div class="w-full"><%- include('footer'); -%></div>
+      <!-- footer -->
+    </div>
+
+    <script src="./assets/js/flowbite.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

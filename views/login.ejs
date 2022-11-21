@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link
+      rel="shortcut icon"
+      href="https://flowbite.com/docs/images/logo.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  </head>
+  <body class="bg-gray-300">
+    <div class="container mx-auto">
+      <!-- Header -->
+      <div class="w-full bg-white drop-shadow-xl py-4">
+        <%- include('header'); -%>
+      </div>
+      <!-- Header -->
+      <!-- Main -->
+
+      <div class="w-full bg-white p-8">
+
+        <div class="w-full bg-white p-8">
+          
+        <div class="w-full text-center mb-4">
+          <h1 class="text-xl antialiased font-semibold"><%= title %></h1>
+        </div>
+        <div class="flex justify-center items-center content-center">
+          <div class="w-7/12 bg-gray-100 rounded-md p-12 mb-5">
+            <form action="/users/login" method="post">
+              <div class="mb-6">
+                <label
+                  for="email"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Username</label
+                >
+                <input
+                  type="text"
+                  id="email"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder="Enter Username"
+                  required=""
+                  name="username"
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="password"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  id="password"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder="•••••••••"
+                  required=""
+                  name="password"
+                />
+              </div>
+              <div
+                class="text-center md:flex md:items-center md:justify-between my-2"
+              >
+                <button
+                  type="submit"
+                  name="submit"
+                  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                >
+                  Login
+                </button>
+
+                <a href="#" class="text-blue-600 underline"
+                  >Forgot your password
+                </a>
+              </div>
+              <div class="mt-5">
+                <p class="my-2">Don't have an account?</p>
+                <a href="/register" class="text-blue-600 underline">
+                  Create New
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Main -->
+      <!-- footer -->
+      <div class="w-full"><%- include('footer'); -%></div>
+      <!-- footer -->
+    </div>
+
+    <script src="./assets/js/flowbite.js"></script>
+  </body>
+</html>
